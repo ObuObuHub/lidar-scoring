@@ -40,10 +40,7 @@ export type ScoringProfile =
   | 'prehistoric'
   | 'roman_military' 
   | 'medieval'
-  | 'modern_military'
-  | 'agricultural'
-  | 'industrial'
-  | 'custom';
+  | 'modern_military';
 
 export interface ProfileWeights {
   dataQuality: number;
@@ -311,29 +308,5 @@ export const SCORING_PROFILES: Record<ScoringProfile, ProfileWeights> = {
     waterAccess: 0.05,
     vegetation: 0.15,
     archaeology: 0.15
-  },
-  agricultural: {
-    dataQuality: 0.15,
-    morphology: 0.20,
-    elevation: 0.05,
-    waterAccess: 0.20,
-    vegetation: 0.25,
-    archaeology: 0.15
-  },
-  industrial: {
-    dataQuality: 0.20,
-    morphology: 0.25,
-    elevation: 0.05,
-    waterAccess: 0.10,
-    vegetation: 0.20,
-    archaeology: 0.20
-  },
-  custom: {
-    dataQuality: 0.17,
-    morphology: 0.17,
-    elevation: 0.17,
-    waterAccess: 0.17,
-    vegetation: 0.16,
-    archaeology: 0.16
   }
 };

@@ -6,46 +6,23 @@ import { ScoringProfile, SCORING_PROFILES, ProfileWeights } from '../types';
 interface ScoringProfilesProps {
   selectedProfile: ScoringProfile;
   onProfileChange: (profile: ScoringProfile) => void;
-  customWeights?: ProfileWeights;
-  onCustomWeightsChange?: (weights: ProfileWeights) => void;
 }
 
 export default function ScoringProfiles({ 
   selectedProfile, 
-  onProfileChange,
-  customWeights,
-  onCustomWeightsChange 
+  onProfileChange
 }: ScoringProfilesProps) {
   
   const profileDescriptions: Record<ScoringProfile, string> = {
     prehistoric: 'Emphasizes water access (35%), suitable for settlements from Neolithic to Bronze Age',
     roman_military: 'Focuses on geometric morphology (25%) and strategic elevation (20%)',
     medieval: 'Prioritizes defensive positions (25% elevation) with balanced other factors',
-    modern_military: 'Heavy weight on regular morphology (30%) typical of military installations',
-    agricultural: 'Vegetation patterns (25%) and water access (20%) are key indicators',
-    industrial: 'Infrastructure proximity via morphology (25%) and archaeological context (20%)',
-    custom: 'Define your own weights for specific research questions'
+    modern_military: 'Heavy weight on regular morphology (30%) typical of military installations'
   };
 
-  const weights = selectedProfile === 'custom' && customWeights 
-    ? customWeights 
-    : SCORING_PROFILES[selectedProfile];
+  const weights = SCORING_PROFILES[selectedProfile];
 
-  const handleWeightChange = (factor: keyof ProfileWeights, value: number) => {
-    if (selectedProfile === 'custom' && onCustomWeightsChange) {
-      const newWeights = { ...weights, [factor]: value / 100 };
-      onCustomWeightsChange(newWeights);
-    }
-  };
 
-  const getTotalWeight = () => {
-    return Object.values(weights).reduce((sum, w) => sum + w, 0);
-  };
-
-  const isWeightValid = () => {
-    const total = getTotalWeight();
-    return Math.abs(total - 1.0) < 0.01;
-  };
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -65,9 +42,6 @@ export default function ScoringProfiles({
           <option value="roman_military">Roman Military Sites</option>
           <option value="medieval">Medieval Fortifications</option>
           <option value="modern_military">Modern Military</option>
-          <option value="agricultural">Agricultural Features</option>
-          <option value="industrial">Industrial Remains</option>
-          <option value="custom">Custom Profile</option>
         </select>
         
         <p className="mt-2 text-base text-gray-900 font-medium">
@@ -85,50 +59,19 @@ export default function ScoringProfiles({
               {factor.replace(/([A-Z])/g, ' $1').trim()}:
             </div>
             
-            {selectedProfile === 'custom' ? (
-              <div className="flex items-center flex-1">
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={weight * 100}
-                  onChange={(e) => handleWeightChange(factor as keyof ProfileWeights, Number(e.target.value))}
-                  className="flex-1 mr-3"
+            <div className="flex items-center flex-1">
+              <div className="flex-1 bg-gray-200 rounded-full h-4 relative">
+                <div 
+                  className="bg-blue-500 h-full rounded-full"
+                  style={{ width: `${weight * 100}%` }}
                 />
-                <input
-                  type="number"
-                  min="0"
-                  max="100"
-                  value={Math.round(weight * 100)}
-                  onChange={(e) => handleWeightChange(factor as keyof ProfileWeights, Number(e.target.value))}
-                  className="w-16 px-2 py-1 border rounded text-center"
-                />
-                <span className="ml-1 text-base font-medium">%</span>
               </div>
-            ) : (
-              <div className="flex items-center flex-1">
-                <div className="flex-1 bg-gray-200 rounded-full h-4 relative">
-                  <div 
-                    className="bg-blue-500 h-full rounded-full"
-                    style={{ width: `${weight * 100}%` }}
-                  />
-                </div>
-                <span className="ml-3 text-base font-semibold text-gray-900">{Math.round(weight * 100)}%</span>
-              </div>
-            )}
+              <span className="ml-3 text-base font-semibold text-gray-900">{Math.round(weight * 100)}%</span>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Custom Profile Validation */}
-      {selectedProfile === 'custom' && (
-        <div className={`mt-4 p-3 rounded ${isWeightValid() ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'} border`}>
-          <p className={`text-base font-semibold ${isWeightValid() ? 'text-green-800' : 'text-red-800'}`}>
-            Total Weight: {Math.round(getTotalWeight() * 100)}%
-            {!isWeightValid() && ' (must equal 100%)'}
-          </p>
-        </div>
-      )}
 
       {/* Profile Comparison */}
       <div className="mt-6 p-4 bg-blue-50 rounded-lg">
@@ -161,23 +104,6 @@ export default function ScoringProfiles({
               <li>• Less dependent on water sources</li>
               <li>• Often in upland training areas</li>
             </>
-          )}
-          {selectedProfile === 'agricultural' && (
-            <>
-              <li>• Vegetation anomalies from field systems</li>
-              <li>• Water management features important</li>
-              <li>• Lower elevation areas preferred</li>
-            </>
-          )}
-          {selectedProfile === 'industrial' && (
-            <>
-              <li>• Morphology shows extraction/processing areas</li>
-              <li>• Archaeological databases often have records</li>
-              <li>• Transport infrastructure proximity</li>
-            </>
-          )}
-          {selectedProfile === 'custom' && (
-            <li>• Define weights based on your specific research questions</li>
           )}
         </ul>
       </div>

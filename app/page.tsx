@@ -19,7 +19,6 @@ import {
 
 export default function Home() {
   const [selectedProfile, setSelectedProfile] = useState<ScoringProfile>('prehistoric');
-  const [customWeights, setCustomWeights] = useState<ProfileWeights>(SCORING_PROFILES.custom);
   const [activeTab, setActiveTab] = useState<'scoring' | 'analysis' | 'guide'>('scoring');
   const [showDisclaimer, setShowDisclaimer] = useState(true);
 
@@ -144,8 +143,6 @@ export default function Home() {
               <ScoringProfiles
                 selectedProfile={selectedProfile}
                 onProfileChange={setSelectedProfile}
-                customWeights={customWeights}
-                onCustomWeightsChange={setCustomWeights}
               />
 
               {/* Source Verification */}
@@ -184,7 +181,7 @@ export default function Home() {
               {currentSite && (
                 <SensitivityAnalysis
                   site={currentSite}
-                  weights={selectedProfile === 'custom' ? customWeights : SCORING_PROFILES[selectedProfile]}
+                  weights={SCORING_PROFILES[selectedProfile]}
                   onAnalysisComplete={() => {}}
                 />
               )}
