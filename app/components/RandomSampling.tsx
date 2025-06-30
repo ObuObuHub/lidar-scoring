@@ -101,7 +101,7 @@ export default function RandomSampling({
       {/* Compliance Status */}
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <p className="text-sm font-medium text-gray-600">Sampling Compliance</p>
+          <p className="text-sm font-medium text-gray-800">Sampling Compliance</p>
           <p className="text-2xl font-bold text-slate-900">
             {samplingRecord.complianceRatio.toFixed(0)}%
           </p>
@@ -131,7 +131,7 @@ export default function RandomSampling({
       {/* Sampling Statistics */}
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div className="p-3 bg-gray-50 rounded">
-          <p className="text-sm font-medium text-gray-600">High Score Sites</p>
+          <p className="text-sm font-medium text-gray-800">High Score Sites</p>
           <p className="text-xl font-bold text-green-600">{samplingRecord.highScoringSites}</p>
           <button
             onClick={() => incrementCategory('high')}
@@ -142,7 +142,7 @@ export default function RandomSampling({
         </div>
         
         <div className="p-3 bg-gray-50 rounded">
-          <p className="text-sm font-medium text-gray-600">Medium Score Sites</p>
+          <p className="text-sm font-medium text-gray-800">Medium Score Sites</p>
           <p className="text-xl font-bold text-yellow-600">{samplingRecord.mediumScoringSites}</p>
           <button
             onClick={() => incrementCategory('medium')}
@@ -153,7 +153,7 @@ export default function RandomSampling({
         </div>
         
         <div className="p-3 bg-gray-50 rounded">
-          <p className="text-sm font-medium text-gray-600">Low Score Sites</p>
+          <p className="text-sm font-medium text-gray-800">Low Score Sites</p>
           <p className="text-xl font-bold text-orange-600">{samplingRecord.lowScoringSites}</p>
           <button
             onClick={() => incrementCategory('low')}
@@ -164,8 +164,8 @@ export default function RandomSampling({
         </div>
         
         <div className="p-3 bg-gray-50 rounded">
-          <p className="text-sm font-medium text-gray-600">Empty Areas</p>
-          <p className="text-xl font-bold text-gray-600">{samplingRecord.emptyAreas}</p>
+          <p className="text-sm font-medium text-gray-800">Empty Areas</p>
+          <p className="text-xl font-bold text-gray-800">{samplingRecord.emptyAreas}</p>
           <button
             onClick={() => incrementCategory('empty')}
             className="mt-2 px-3 py-1 bg-gray-500 text-white rounded text-sm hover:bg-gray-600"
@@ -223,7 +223,7 @@ export default function RandomSampling({
       )}
 
       {/* Export Stats */}
-      <div className="mt-4 text-xs text-gray-500">
+      <div className="mt-4 text-xs text-gray-700">
         Total sites evaluated: {samplingRecord.totalSites} | 
         Last updated: {new Date(samplingRecord.lastUpdated).toLocaleString()}
       </div>

@@ -108,7 +108,7 @@ export default function Home() {
               className={`px-6 py-3 font-semibold ${
                 activeTab === 'scoring'
                   ? 'bg-blue-50 text-blue-600 border-b-2 border-blue-600'
-                  : 'text-gray-600 hover:text-gray-900'
+                  : 'text-gray-800 hover:text-gray-900'
               }`}
             >
               Site Scoring
@@ -118,7 +118,7 @@ export default function Home() {
               className={`px-6 py-3 font-semibold ${
                 activeTab === 'analysis'
                   ? 'bg-blue-50 text-blue-600 border-b-2 border-blue-600'
-                  : 'text-gray-600 hover:text-gray-900'
+                  : 'text-gray-800 hover:text-gray-900'
               }`}
             >
               Analysis Tools
@@ -128,7 +128,7 @@ export default function Home() {
               className={`px-6 py-3 font-semibold ${
                 activeTab === 'guide'
                   ? 'bg-blue-50 text-blue-600 border-b-2 border-blue-600'
-                  : 'text-gray-600 hover:text-gray-900'
+                  : 'text-gray-800 hover:text-gray-900'
               }`}
             >
               Scoring Guide
@@ -194,11 +194,11 @@ export default function Home() {
                 <h3 className="text-xl font-bold text-slate-900 mb-4">Bias Prevention Summary</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-3 bg-gray-50 rounded">
-                    <p className="text-sm font-medium text-gray-600">Sampling Compliance</p>
+                    <p className="text-sm font-medium text-gray-800">Sampling Compliance</p>
                     <p className="text-xl font-bold">{samplingRecord.complianceRatio.toFixed(0)}%</p>
                   </div>
                   <div className="p-3 bg-gray-50 rounded">
-                    <p className="text-sm font-medium text-gray-600">Source Verification</p>
+                    <p className="text-sm font-medium text-gray-800">Source Verification</p>
                     <p className="text-xl font-bold">
                       {dataSources.minimumSourcesMet ? 'Met' : 'Not Met'}
                     </p>

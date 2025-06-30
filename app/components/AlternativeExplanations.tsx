@@ -131,7 +131,7 @@ export default function AlternativeExplanations({
                   <label className="font-medium text-gray-900 cursor-pointer">
                     {altType.label}
                   </label>
-                  <p className="text-sm text-gray-600 mt-1">{altType.description}</p>
+                  <p className="text-sm text-gray-800 mt-1">{altType.description}</p>
                   
                   {explanation.checked && (
                     <div className="mt-3 space-y-2">

@@ -53,7 +53,7 @@ export default function ScoringProfiles({
       
       {/* Profile Selection */}
       <div className="mb-6">
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-base font-semibold text-gray-900 mb-2">
           Select Archaeological Context:
         </label>
         <select
@@ -70,7 +70,7 @@ export default function ScoringProfiles({
           <option value="custom">Custom Profile</option>
         </select>
         
-        <p className="mt-2 text-sm text-gray-600">
+        <p className="mt-2 text-sm text-gray-800">
           {profileDescriptions[selectedProfile]}
         </p>
       </div>
@@ -81,7 +81,7 @@ export default function ScoringProfiles({
         
         {Object.entries(weights).map(([factor, weight]) => (
           <div key={factor} className="flex items-center space-x-3">
-            <div className="w-32 text-sm font-medium capitalize">
+            <div className="w-32 text-base font-semibold capitalize text-gray-900">
               {factor.replace(/([A-Z])/g, ' $1').trim()}:
             </div>
             
@@ -103,7 +103,7 @@ export default function ScoringProfiles({
                   onChange={(e) => handleWeightChange(factor as keyof ProfileWeights, Number(e.target.value))}
                   className="w-16 px-2 py-1 border rounded text-center"
                 />
-                <span className="ml-1 text-sm">%</span>
+                <span className="ml-1 text-base font-medium">%</span>
               </div>
             ) : (
               <div className="flex items-center flex-1">
@@ -113,7 +113,7 @@ export default function ScoringProfiles({
                     style={{ width: `${weight * 100}%` }}
                   />
                 </div>
-                <span className="ml-3 text-sm font-medium">{Math.round(weight * 100)}%</span>
+                <span className="ml-3 text-base font-semibold text-gray-900">{Math.round(weight * 100)}%</span>
               </div>
             )}
           </div>
