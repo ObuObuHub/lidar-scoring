@@ -77,7 +77,7 @@ export default function SourceChecklist({ dataSources, onUpdate }: SourceCheckli
     <div className="bg-white p-6 rounded-lg shadow-lg">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-xl font-bold text-slate-900">Data Source Verification</h3>
-        <div className={`px-3 py-1 rounded-full text-sm font-semibold ${
+        <div className={`px-3 py-1 rounded-full text-base font-bold ${
           dataSources.minimumSourcesMet 
             ? 'bg-green-100 text-green-800' 
             : 'bg-red-100 text-red-800'
@@ -89,7 +89,7 @@ export default function SourceChecklist({ dataSources, onUpdate }: SourceCheckli
       {!dataSources.minimumSourcesMet && (
         <div className="mb-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800">
           <p className="font-semibold">Warning: Minimum data sources not met</p>
-          <p className="text-sm">At least 3 different source types must be checked before scoring.</p>
+          <p className="text-base font-medium">At least 3 different source types must be checked before scoring.</p>
         </div>
       )}
 
@@ -105,13 +105,13 @@ export default function SourceChecklist({ dataSources, onUpdate }: SourceCheckli
             })}
             className="mr-2"
           />
-          <h4 className="font-semibold text-lg">LIDAR Data</h4>
+          <h4 className="font-bold text-lg text-gray-900">LIDAR Data</h4>
         </div>
         
         {dataSources.lidar.checked && (
           <div className="ml-6 space-y-2">
             <div>
-              <label className="text-sm font-medium">Date:</label>
+              <label className="text-base font-semibold text-gray-900">Date:</label>
               <input
                 type="date"
                 value={dataSources.lidar.date}
@@ -123,7 +123,7 @@ export default function SourceChecklist({ dataSources, onUpdate }: SourceCheckli
               />
             </div>
             <div>
-              <label className="text-sm font-medium">Quality:</label>
+              <label className="text-base font-semibold text-gray-900">Quality:</label>
               <select
                 value={dataSources.lidar.quality}
                 onChange={(e) => updateSource('lidar', {
@@ -139,7 +139,7 @@ export default function SourceChecklist({ dataSources, onUpdate }: SourceCheckli
               </select>
             </div>
             <div>
-              <label className="text-sm font-medium">Notes:</label>
+              <label className="text-base font-semibold text-gray-900">Notes:</label>
               <textarea
                 value={dataSources.lidar.notes}
                 onChange={(e) => updateSource('lidar', {
@@ -157,10 +157,10 @@ export default function SourceChecklist({ dataSources, onUpdate }: SourceCheckli
       {/* Historical Maps */}
       <div className="mb-6 p-4 border rounded-lg">
         <div className="flex justify-between items-center mb-2">
-          <h4 className="font-semibold text-lg">Historical Maps</h4>
+          <h4 className="font-bold text-lg text-gray-900">Historical Maps</h4>
           <button
             onClick={addHistoricalMap}
-            className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm"
+            className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-base font-semibold"
           >
             Add Map
           </button>
@@ -179,7 +179,7 @@ export default function SourceChecklist({ dataSources, onUpdate }: SourceCheckli
                 }}
                 className="mr-2"
               />
-              <span className="font-medium">Map {idx + 1}</span>
+              <span className="font-bold text-gray-900">Map {idx + 1}</span>
             </div>
             
             {map.checked && (
@@ -236,10 +236,10 @@ export default function SourceChecklist({ dataSources, onUpdate }: SourceCheckli
       {/* Aerial Photos */}
       <div className="mb-6 p-4 border rounded-lg">
         <div className="flex justify-between items-center mb-2">
-          <h4 className="font-semibold text-lg">Aerial Photography</h4>
+          <h4 className="font-bold text-lg text-gray-900">Aerial Photography</h4>
           <button
             onClick={addAerialPhoto}
-            className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm"
+            className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-base font-semibold"
           >
             Add Photo
           </button>
@@ -258,7 +258,7 @@ export default function SourceChecklist({ dataSources, onUpdate }: SourceCheckli
                 }}
                 className="mr-2"
               />
-              <span className="font-medium">Photo Set {idx + 1}</span>
+              <span className="font-bold text-gray-900">Photo Set {idx + 1}</span>
             </div>
             
             {photo.checked && (
