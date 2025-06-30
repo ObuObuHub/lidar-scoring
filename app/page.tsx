@@ -55,7 +55,7 @@ export default function Home() {
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg max-w-2xl w-full p-6 shadow-2xl">
             <h2 className="text-2xl font-bold text-red-600 mb-4">Important Archaeological Notice</h2>
-            <div className="space-y-3 text-gray-700">
+            <div className="space-y-3 text-gray-900">
               <p>
                 <strong>This tool provides probability assessments, NOT definitive identifications.</strong>
               </p>
@@ -95,7 +95,7 @@ export default function Home() {
               <p className="text-gray-100">Enhanced multi-criteria analysis with bias reduction</p>
             </div>
             <div className="bg-red-600 text-white px-4 py-2 rounded-lg">
-              <p className="text-sm font-bold">Probability Tool Only</p>
+              <p className="text-base font-bold">Probability Tool Only</p>
             </div>
           </div>
         </header>
@@ -108,7 +108,7 @@ export default function Home() {
               className={`px-6 py-3 font-semibold ${
                 activeTab === 'scoring'
                   ? 'bg-blue-50 text-blue-600 border-b-2 border-blue-600'
-                  : 'text-gray-800 hover:text-gray-900'
+                  : 'text-gray-900 hover:text-black'
               }`}
             >
               Site Scoring
@@ -118,7 +118,7 @@ export default function Home() {
               className={`px-6 py-3 font-semibold ${
                 activeTab === 'analysis'
                   ? 'bg-blue-50 text-blue-600 border-b-2 border-blue-600'
-                  : 'text-gray-800 hover:text-gray-900'
+                  : 'text-gray-900 hover:text-black'
               }`}
             >
               Analysis Tools
@@ -128,7 +128,7 @@ export default function Home() {
               className={`px-6 py-3 font-semibold ${
                 activeTab === 'guide'
                   ? 'bg-blue-50 text-blue-600 border-b-2 border-blue-600'
-                  : 'text-gray-800 hover:text-gray-900'
+                  : 'text-gray-900 hover:text-black'
               }`}
             >
               Scoring Guide
@@ -194,11 +194,11 @@ export default function Home() {
                 <h3 className="text-xl font-bold text-slate-900 mb-4">Bias Prevention Summary</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-3 bg-gray-50 rounded">
-                    <p className="text-sm font-medium text-gray-800">Sampling Compliance</p>
+                    <p className="text-base font-semibold text-gray-900">Sampling Compliance</p>
                     <p className="text-xl font-bold">{samplingRecord.complianceRatio.toFixed(0)}%</p>
                   </div>
                   <div className="p-3 bg-gray-50 rounded">
-                    <p className="text-sm font-medium text-gray-800">Source Verification</p>
+                    <p className="text-base font-semibold text-gray-900">Source Verification</p>
                     <p className="text-xl font-bold">
                       {dataSources.minimumSourcesMet ? 'Met' : 'Not Met'}
                     </p>
@@ -215,10 +215,10 @@ export default function Home() {
               {/* Additional Methodological Notes */}
               <div className="mt-6 bg-white p-6 rounded-lg shadow-lg">
                 <h3 className="text-xl font-bold text-slate-900 mb-4">Methodological Framework</h3>
-                <div className="space-y-4 text-gray-700">
+                <div className="space-y-4 text-gray-900">
                   <div>
                     <h4 className="font-semibold">Bias Reduction Measures:</h4>
-                    <ul className="list-disc ml-6 text-sm space-y-1">
+                    <ul className="list-disc ml-6 text-base space-y-1">
                       <li>Random sampling protocol enforces evaluation of low-probability areas</li>
                       <li>Sensitivity analysis identifies single-factor dependencies</li>
                       <li>Multiple data source requirement prevents over-reliance on LIDAR</li>
@@ -227,7 +227,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-semibold">Machine Learning Preparation:</h4>
-                    <ul className="list-disc ml-6 text-sm space-y-1">
+                    <ul className="list-disc ml-6 text-base space-y-1">
                       <li>Class A: Clear, verified, single-period sites (ideal training data)</li>
                       <li>Class B: Clear features with some ambiguity</li>
                       <li>Class C: Unclear, multi-period, or poorly verified</li>

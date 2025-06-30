@@ -131,7 +131,7 @@ export default function AlternativeExplanations({
                   <label className="font-medium text-gray-900 cursor-pointer">
                     {altType.label}
                   </label>
-                  <p className="text-sm text-gray-800 mt-1">{altType.description}</p>
+                  <p className="text-base text-gray-900 mt-1">{altType.description}</p>
                   
                   {explanation.checked && (
                     <div className="mt-3 space-y-2">
@@ -181,7 +181,7 @@ export default function AlternativeExplanations({
 
       {/* Summary */}
       <div className="mt-6 p-3 bg-gray-100 rounded">
-        <p className="text-sm font-medium text-gray-700">
+        <p className="text-base font-semibold text-gray-900">
           {getCheckedCount()} alternative explanation{getCheckedCount() !== 1 ? 's' : ''} considered
           {getCheckedCount() === 0 && (
             <span className="text-red-600 ml-1">(Consider at least one alternative)</span>
@@ -195,7 +195,7 @@ export default function AlternativeExplanations({
           Common Misidentifications Reference
         </summary>
         <div className="mt-2 p-3 bg-gray-50 rounded text-sm">
-          <ul className="space-y-1 text-gray-700">
+          <ul className="space-y-1 text-gray-900">
             <li>• <strong>Rectangular earthworks:</strong> Often WW2 training camps, not Roman</li>
             <li>• <strong>Circular features:</strong> Modern livestock rings, not prehistoric</li>
             <li>• <strong>Linear features:</strong> Field drains, not ancient roads</li>

@@ -70,7 +70,7 @@ export default function ScoringProfiles({
           <option value="custom">Custom Profile</option>
         </select>
         
-        <p className="mt-2 text-sm text-gray-800">
+        <p className="mt-2 text-base text-gray-900 font-medium">
           {profileDescriptions[selectedProfile]}
         </p>
       </div>
@@ -123,7 +123,7 @@ export default function ScoringProfiles({
       {/* Custom Profile Validation */}
       {selectedProfile === 'custom' && (
         <div className={`mt-4 p-3 rounded ${isWeightValid() ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'} border`}>
-          <p className={`text-sm font-medium ${isWeightValid() ? 'text-green-800' : 'text-red-800'}`}>
+          <p className={`text-base font-semibold ${isWeightValid() ? 'text-green-800' : 'text-red-800'}`}>
             Total Weight: {Math.round(getTotalWeight() * 100)}%
             {!isWeightValid() && ' (must equal 100%)'}
           </p>
@@ -133,7 +133,7 @@ export default function ScoringProfiles({
       {/* Profile Comparison */}
       <div className="mt-6 p-4 bg-blue-50 rounded-lg">
         <h4 className="font-semibold text-blue-900 mb-2">Profile Characteristics:</h4>
-        <ul className="text-sm text-blue-800 space-y-1">
+        <ul className="text-base text-blue-900 space-y-1">
           {selectedProfile === 'prehistoric' && (
             <>
               <li>• Heavily weighted toward water sources (historical and modern)</li>
@@ -184,7 +184,7 @@ export default function ScoringProfiles({
 
       {/* Warning about period assumptions */}
       <div className="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400">
-        <p className="text-sm text-yellow-800">
+        <p className="text-base text-yellow-900">
           <strong>Important:</strong> Profile selection adjusts scoring weights but does NOT determine 
           site chronology. Always consider multiple periods and alternative explanations.
         </p>

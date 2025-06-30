@@ -143,13 +143,13 @@ export default function SensitivityAnalysis({
       {/* Score Summary */}
       <div className="mb-6 p-4 bg-gray-50 rounded">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-sm font-medium text-gray-800">Base Score:</span>
+          <span className="text-base font-semibold text-gray-900">Base Score:</span>
           <span className="text-xl font-bold text-slate-900">
             {analysisResult.baseScore.toFixed(1)}
           </span>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-sm font-medium text-gray-800">Confidence Range:</span>
+          <span className="text-base font-semibold text-gray-900">Confidence Range:</span>
           <span className="text-sm font-medium text-slate-700">
             {analysisResult.confidenceRange[0].toFixed(1)} - {analysisResult.confidenceRange[1].toFixed(1)}
           </span>
@@ -164,7 +164,7 @@ export default function SensitivityAnalysis({
           <div key={factor.factor} className="space-y-1">
             <div className="flex justify-between items-center">
               <span className="text-sm font-medium">{factor.factor}</span>
-              <span className="text-sm text-gray-800">
+              <span className="text-base text-gray-900">
                 {factor.percentage > 0 ? '+' : ''}{factor.percentage.toFixed(1)}%
               </span>
             </div>
@@ -175,7 +175,7 @@ export default function SensitivityAnalysis({
               />
             </div>
             {showDetails && (
-              <p className="text-xs text-gray-700">
+              <p className="text-sm text-gray-900">
                 Score without: {factor.scoreWithout.toFixed(2)} 
                 (Impact: {factor.impact.toFixed(2)})
               </p>
@@ -199,7 +199,7 @@ export default function SensitivityAnalysis({
 
       {/* Recommendations based on analysis */}
       <div className="mt-4 p-3 bg-gray-100 rounded">
-        <p className="text-sm font-medium text-gray-700">
+        <p className="text-base font-semibold text-gray-900">
           Recommendation: 
           {analysisResult.dominantFactor ? (
             <span className="text-orange-700">
