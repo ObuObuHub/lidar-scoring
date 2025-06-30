@@ -47,7 +47,7 @@ export default function ScoringGuide() {
         <div>
           <h3 className="text-lg font-semibold text-slate-800 mb-2">6. Archaeological Context (0-1 point)</h3>
           <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
-            <li>1 point if known archaeological sites within 2km (exclude if site itself is in RAN)</li>
+            <li>1 point if known archaeological sites within 2km</li>
           </ul>
         </div>
 
